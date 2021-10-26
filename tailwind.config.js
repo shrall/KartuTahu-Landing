@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+          "montserrat": ['"Montserrat"'],
+          "noto-sans": ['"Noto Sans"'],
+      },
       colors: {
         tahucyan: {
           400: "#44CED1",
