@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.nav{
+    @apply hover:text-tahured-400;
+}
 .nav-active{
     @apply text-tahured-400;
+}
+.section-head{
+    @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-24;
+}
+
+.theme-menu{
+    @apply w-32 text-center px-4 py-2 rounded-xl border-2 cursor-pointer hover:text-white;
 }

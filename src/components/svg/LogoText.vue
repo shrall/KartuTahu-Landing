@@ -32,7 +32,7 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 .cls-1 {
   fill: #181617;
 }

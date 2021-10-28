@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: (theme) => ({
+          loginbg: "url('/src/assets/svg/wave1.svg')",
+      }),
       fontFamily: {
           "montserrat": ['"Montserrat"'],
           "noto-sans": ['"Noto Sans"'],
@@ -47,6 +50,14 @@ module.exports = {
           400: "#181617",
         },
       },
+      spacing: {
+        "108": "28rem",
+        "112": "32rem",
+        "128": "36rem",
+        "136": "40rem",
+        "142": "44rem",
+        "148": "48rem"
+      },
       height: {
         "vh-50": "50vh",
         "vh-60": "60vh",
@@ -82,6 +93,12 @@ module.exports = {
         "8/10": "80%",
         "9/10": "90%",
       },
+      zIndex: {
+       '-10': '-10',
+       '-20': '-20',
+       '-30': '-30',
+       '-40': '-40',
+      }
     },
   },
   variants: {

@@ -14,7 +14,7 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 .cls-1 {
   fill: #ff4a3d;
 }
