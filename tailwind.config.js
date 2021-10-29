@@ -1,11 +1,23 @@
 module.exports = {
+  mode: 'jit',
   purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: (theme) => ({
-          loginbg: "url('/src/assets/svg/wave1.svg')",
-      }),
+      backgroundImage: {
+          'bg-theme': "url('/src/assets/svg/wave1.svg')",
+          'card-taktahu': "url('/src/assets/svg/cards/CardTakTahu.svg')",
+          'card-tahu': "url('/src/assets/svg/cards/CardTahu.svg')",
+          'card-sobattahu': "url('/src/assets/svg/cards/CardSobatTahu.svg')",
+          'card-sukadia': "url('/src/assets/svg/cards/CardSukaDia.svg')",
+          'card-pacardia': "url('/src/assets/svg/cards/CardPacarDia.svg')",
+          'card-yakindia': "url('/src/assets/svg/cards/CardYakinDia.svg')",
+          'card-lucu': "url('/src/assets/svg/cards/CardLucu.svg')",
+          'card-tantangan': "url('/src/assets/svg/cards/CardTantangan.svg')",
+          'card-kolega': "url('/src/assets/svg/cards/CardKolega.svg')",
+          'card-keluarga': "url('/src/assets/svg/cards/CardKeluarga.svg')",
+          'card-diriku': "url('/src/assets/svg/cards/CardDiriku.svg')",
+      },
       fontFamily: {
           "montserrat": ['"Montserrat"'],
           "noto-sans": ['"Noto Sans"'],

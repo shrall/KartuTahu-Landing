@@ -11,9 +11,12 @@
     @apply text-tahured-400;
 }
 .section-head{
-    @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-24;
+    @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-24 text-6xl;
 }
 
 .theme-menu{
     @apply w-32 text-center px-4 py-2 rounded-xl border-2 cursor-pointer hover:text-white;
+}
+.theme-card{
+    @apply w-128 h-96 mx-4 bg-light-200 rounded-xl my-8 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 bg-cover;
 }
