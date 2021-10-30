@@ -5,18 +5,18 @@
     <div></div>
     <a id="nav-home" href="#home" class="nav nav-active">Home</a>
     <a id="nav-apa-itu-tahu" href="#apa-itu-tahu" class="nav">Apa itu Tahu?</a>
-    <LogoRed v-bind:logoColor="logoColor" class="w-14"></LogoRed>
+    <Logo v-bind:logoColor="logoColor" class="w-14"></Logo>
     <a id="nav-cara-bermain" href="#cara-bermain" class="nav">Cara Bermain</a>
     <a id="nav-hubungi-kami" href="#hubungi-kami" class="nav">Hubungi Kami</a>
   </nav>
 </template>
 
 <script>
-import LogoRed from '../svg/logo/Logo.vue'
+import Logo from '../svg/logo/Logo.vue'
 export default {
   props: ['logoColor'],
   components: {
-    LogoRed,
+    Logo,
   },
 }
 </script>

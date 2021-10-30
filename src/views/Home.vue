@@ -15,7 +15,7 @@
           >
             <div class="fab fa-apple text-6xl"></div>
             <div class="font-noto-sans">
-              <div>Download on the</div>
+              <div>Download di</div>
               <div class="text-2xl 2xl:text-3xl font-bold">App Store</div>
             </div>
           </div>
@@ -24,7 +24,7 @@
           >
             <div class="fab fa-google-play text-5xl"></div>
             <div class="font-noto-sans">
-              <div>GET IT ON</div>
+              <div>TEMUKAN DI</div>
               <div class="text-2xl 2xl:text-3xl font-bold">Google Play</div>
             </div>
           </div>
@@ -35,7 +35,7 @@
     <div class="bg-light-200 w-full h-auto" id="apa-itu-tahu">
       <div class="section-head">
         <div class="text-6xl">Apa itu</div>
-        <LogoText class="w-40 mx-3" />
+        <LogoText class="w-36 mx-3" />
         <div class="text-7xl">?</div>
       </div>
       <AssetsApaItuTahu class="h-96 mx-auto my-4" />
@@ -212,36 +212,230 @@
         </div>
       </div>
       <div class="bg-light-200 h-full">
-        <Flicking></Flicking>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#f6f6f6"
-            fill-opacity="1"
-            d="M0,288L40,288C80,288,160,288,240,261.3C320,235,400,181,480,170.7C560,160,640,192,720,202.7C800,213,880,203,960,192C1040,181,1120,171,1200,160C1280,149,1360,139,1400,133.3L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          ></path>
-        </svg>
+        <Flicking :plugins="plugins" :options="{ noPanelStyleOverride: true }">
+          <div class="w-vw-70 mr-12">
+            <div class="grid grid-cols-12 justify-center items-center">
+              <div
+                class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
+              >
+                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                  Langkah 1
+                </div>
+                <div class="font-noto-sans text-2xl">
+                  Buat game room di app lalu sebarkan kode room yang telah
+                  didapat agar pemain lain dapat masuk ke dalam room.
+                </div>
+              </div>
+              <div class="col-span-4">
+                <img src="../assets/svg/1stStep.svg" class="h-vh-55" />
+              </div>
+            </div>
+          </div>
+          <div class="w-vw-70 mr-12">
+            <div class="grid grid-cols-12 justify-center items-center">
+              <div
+                class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
+              >
+                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                  Langkah 2
+                </div>
+                <div class="font-noto-sans text-2xl">
+                  Pemain lain selain host dapat memasukkan kode room untuk
+                  bergabung ke dalam permainan.
+                </div>
+              </div>
+              <div class="col-span-4">
+                <img src="../assets/svg/2ndStep.svg" class="h-vh-55" />
+              </div>
+            </div>
+          </div>
+          <div class="w-vw-70 mr-12">
+            <div class="grid grid-cols-12 justify-center items-center">
+              <div
+                class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
+              >
+                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                  Langkah 3
+                </div>
+                <div class="font-noto-sans text-2xl">
+                  Setiap pemain akan mendapatkan giliran untuk mengambil kartu.
+                  Pertanyaan yang ditulis di kartu dapat dijawab oleh pemain.
+                </div>
+              </div>
+              <div class="col-span-4">
+                <img src="../assets/svg/3rdStep.svg" class="h-vh-55" />
+              </div>
+            </div>
+          </div>
+          <div class="w-vw-70 mr-12">
+            <div class="grid grid-cols-12 justify-center items-center">
+              <div
+                class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
+              >
+                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                  Langkah 4
+                </div>
+                <div class="font-noto-sans text-2xl">
+                  Untuk penonton bisa menyaksikan permainan secara langsung
+                  melalui website dengan memasukkan kode room.
+                </div>
+              </div>
+              <div class="col-span-4">
+                <img src="../assets/svg/4thStep.svg" class="h-vh-55" />
+              </div>
+            </div>
+          </div>
+          <template #viewport>
+            <div class="flicking-pagination"></div>
+            <span class="flicking-arrow-prev"></span>
+            <span class="flicking-arrow-next"></span>
+          </template>
+        </Flicking>
+      </div>
+    </div>
+    <div class="bg-white w-full h-auto" id="hubungi-kami">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#f6f6f6"
+          fill-opacity="1"
+          d="M0,160L48,165.3C96,171,192,181,288,170.7C384,160,480,128,576,112C672,96,768,96,864,90.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+        ></path>
+      </svg>
+      <div
+        class="section-head h-96 mb-12 bg-hubungi-kami bg-contain bg-no-repeat bg-bottom"
+      >
+        <div class="text-6xl">Mau</div>
+        <LogoText class="w-36 mx-3" />
+        <div class="text-7xl">?</div>
+      </div>
+      <div class="font-noto-sans text-2xl text-center px-64 mb-28">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s.
+      </div>
+      <div class="relative w-vw-60 mx-auto">
+        <div
+          class="bg-light-200 border-2 border-light-400 w-full rounded-xl px-24 pt-8"
+        >
+          <img
+            src="../assets/svg/bulet/bulet1.svg"
+            class="absolute bottom-0 left-0 transform -translate-x-12 translate-y-12 w-24"
+          />
+          <img
+            src="../assets/svg/bulet/bulet2.svg"
+            class="absolute top-0 right-4 transform -translate-y-24 w-24"
+          />
+          <form class="font-noto-sans flex flex-col mt-14">
+            <label for="name">
+              Nama Lengkap
+              <span class="text-tahured-400">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              class="bg-light-200 border-b-2 border-dark-200 h-8 focus:outline-none mb-4"
+            />
+            <label for="ig">
+              Username IG
+              <span class="text-tahured-400">*</span>
+            </label>
+            <input
+              type="text"
+              name="ig"
+              class="bg-light-200 border-b-2 border-dark-200 h-8 focus:outline-none mb-4"
+            />
+            <button
+              type="submit"
+              class="bg-tahured-400 text-white rounded-lg w-32 ml-auto my-10 px-8 py-2"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#ff4a3d"
+          fill-opacity="1"
+          d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,170.7C672,160,768,160,864,170.7C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+    <div class="bg-dark-300 text-white w-full h-auto pt-32 px-64">
+      <div class="grid grid-cols-12 gap-x-12 justify-center items-center pb-16">
+        <div class="col-span-5">
+          <Logo :logoColor="'#ffffff'" class="w-36 mx-auto" />
+        </div>
+        <div class="col-span-7 2xl:col-span-5 flex flex-col gap-y-4">
+          <div class="flex items-center gap-x-4 font-noto-sans">
+            <a href="#" class="flex items-center gap-x-4 hover:text-light-400">
+              <span class="fab fa-fw fa-instagram text-5xl"></span>
+              <span class="text-2xl">kartutahu</span>
+            </a>
+            <a href="#" class="flex items-center gap-x-4 hover:text-light-400">
+              <span class="far fa-fw fa-envelope text-5xl"></span>
+              <span class="text-2xl">kartutahu@gmail.com</span>
+            </a>
+          </div>
+          <div class="flex gap-x-4 text-white">
+            <div
+              class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
+            >
+              <div class="fab fa-apple text-6xl"></div>
+              <div class="font-noto-sans">
+                <div>Download di</div>
+                <div class="text-2xl font-bold">App Store</div>
+              </div>
+            </div>
+            <div
+              class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
+            >
+              <div class="fab fa-google-play text-5xl"></div>
+              <div class="font-noto-sans">
+                <div>TEMUKAN DI</div>
+                <div class="text-2xl font-bold">Google Play</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pb-8">
+        ©2021 Tahu. Surabaya, Indonesia
       </div>
     </div>
   </div>
 </template>
 
 <script>
+//flicking src:https://naver.github.io/egjs-flicking/
+import Flicking from '@egjs/vue3-flicking'
+import '@egjs/vue3-flicking/dist/flicking-inline.css'
+import { Pagination, Fade, Arrow } from '@egjs/flicking-plugins'
+import '@egjs/flicking-plugins/dist/pagination.css'
+import '@egjs/flicking-plugins/dist/arrow.css'
 //components
 import Navbar from '../components/widgets/Navbar.vue'
 //logo
+import Logo from '../components/svg/logo/Logo.vue'
 import LogoText from '../components/svg/logo/LogoText.vue'
 //*svg assets
 import AssetsHome from '../components/svg/illustrations/AssetsHome.vue'
 import AssetsApaItuTahu from '../components/svg/illustrations/AssetsApaItuTahu.vue'
 export default {
   components: {
+    Flicking: Flicking,
     Navbar,
+    Logo,
     LogoText,
     AssetsHome,
     AssetsApaItuTahu,
   },
   data() {
-    return { activeTheme: 'teman', themeColor: '#ff4a3d' }
+    return {
+      activeTheme: 'teman',
+      themeColor: '#ff4a3d',
+      plugins: [new Pagination({ type: 'bullet' }), new Fade(), new Arrow()],
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)

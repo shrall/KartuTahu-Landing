@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@egjs/flicking-plugins": "^4.2.2",
     "@egjs/vue3-flicking": "^4.4.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "vue": "^3.2.16",
