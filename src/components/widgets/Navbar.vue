@@ -1,13 +1,18 @@
 <template>
-  <nav id="navbar" class="fixed grid grid-cols-11 justify-center place-items-center items-center gap-x-4 font-noto-sans font-semibold py-4 w-screen bg-light-200 z-50">
+  <nav
+    id="navbar"
+    class="fixed grid grid-cols-11 justify-center place-items-center items-center gap-x-4 font-noto-sans font-semibold py-4 w-screen bg-light-200 z-50"
+  >
     <div></div>
     <div></div>
     <div></div>
-    <a id="nav-home" href="#home" class="nav nav-active">Home</a>
-    <a id="nav-apa-itu-tahu" href="#apa-itu-tahu" class="nav">Apa itu Tahu?</a>
+    <a id="nav-home" @click="navJump('home')" class="nav nav-active">
+      Home
+    </a>
+    <a id="nav-apa-itu-tahu" @click="navJump('apa-itu-tahu')" class="nav">Apa itu Tahu?</a>
     <Logo v-bind:logoColor="logoColor" class="w-14"></Logo>
-    <a id="nav-cara-bermain" href="#cara-bermain" class="nav">Cara Bermain</a>
-    <a id="nav-hubungi-kami" href="#hubungi-kami" class="nav">Hubungi Kami</a>
+    <a id="nav-cara-bermain" @click="navJump('cara-bermain')" class="nav">Cara Bermain</a>
+    <a id="nav-hubungi-kami" @click="navJump('hubungi-kami')" class="nav">Hubungi Kami</a>
   </nav>
 </template>
 
@@ -17,6 +22,12 @@ export default {
   props: ['logoColor'],
   components: {
     Logo,
+  },
+  methods: {
+    navJump(id) {
+      window.scrollTo(0, 0)
+      window.scrollTo(0, document.getElementById(id).getBoundingClientRect().y - 120)
+    },
   },
 }
 </script>

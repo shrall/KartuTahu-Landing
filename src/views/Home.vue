@@ -10,7 +10,7 @@
           Yuk main bareng, biar makin tahu
         </div>
         <div class="flex gap-x-4 text-white">
-          <div
+          <div @click="navJump('hubungi-kami')"
             class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-apple text-6xl"></div>
@@ -19,7 +19,7 @@
               <div class="text-2xl 2xl:text-3xl font-bold">App Store</div>
             </div>
           </div>
-          <div
+          <div @click="navJump('hubungi-kami')"
             class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-google-play text-5xl"></div>
@@ -293,7 +293,7 @@
         </Flicking>
       </div>
     </div>
-    <div class="bg-white w-full h-auto" id="hubungi-kami">
+    <div class="bg-white w-full h-auto">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#f6f6f6"
@@ -303,6 +303,7 @@
       </svg>
       <div
         class="section-head h-96 mb-12 bg-hubungi-kami bg-contain bg-no-repeat bg-bottom"
+        id="hubungi-kami"
       >
         <div class="text-6xl">Mau</div>
         <LogoText class="w-36 mx-3" />
@@ -378,7 +379,7 @@
             </a>
           </div>
           <div class="flex gap-x-4 text-white">
-            <div
+            <div @click="navJump('hubungi-kami')"
               class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-apple text-6xl"></div>
@@ -387,7 +388,7 @@
                 <div class="text-2xl font-bold">App Store</div>
               </div>
             </div>
-            <div
+            <div @click="navJump('hubungi-kami')"
               class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-google-play text-5xl"></div>
@@ -455,11 +456,17 @@ export default {
       this.activeTheme = theme
     },
     onScroll() {
-      // console.log(window.scrollY);
-      // console.log(document.getElementById('apa-itu-tahu').getBoundingClientRect());
-      if (window.scrollY >= window.innerHeight * 3) {
+      console.log(window.scrollY)
+      console.log(
+        document.getElementById('apa-itu-tahu').getBoundingClientRect(),
+      )
+      if (
+        160 >= document.getElementById('hubungi-kami').getBoundingClientRect().y
+      ) {
         this.changeActiveMenu('#nav-hubungi-kami')
-      } else if (window.scrollY >= window.innerHeight * 2) {
+      } else if (
+        160 >= document.getElementById('cara-bermain').getBoundingClientRect().y
+      ) {
         this.changeActiveMenu('#nav-cara-bermain')
       } else if (
         160 >= document.getElementById('apa-itu-tahu').getBoundingClientRect().y
@@ -474,6 +481,10 @@ export default {
         element.classList.remove('nav-active')
       })
       document.querySelector(id).classList.add('nav-active')
+    },
+    navJump(id) {
+      window.scrollTo(0, 0)
+      window.scrollTo(0, document.getElementById(id).getBoundingClientRect().y - 120)
     },
   },
 }
