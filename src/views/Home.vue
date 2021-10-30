@@ -10,7 +10,8 @@
           Yuk main bareng, biar makin tahu
         </div>
         <div class="flex gap-x-4 text-white">
-          <div @click="navJump('hubungi-kami')"
+          <div
+            @click="navJump('hubungi-kami')"
             class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-apple text-6xl"></div>
@@ -19,7 +20,8 @@
               <div class="text-2xl 2xl:text-3xl font-bold">App Store</div>
             </div>
           </div>
-          <div @click="navJump('hubungi-kami')"
+          <div
+            @click="navJump('hubungi-kami')"
             class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-google-play text-5xl"></div>
@@ -316,6 +318,7 @@
       </div>
       <div class="relative w-vw-60 mx-auto">
         <div
+          v-if="!contactBool"
           class="bg-light-200 border-2 border-light-400 w-full rounded-xl px-24 pt-8"
         >
           <img
@@ -326,14 +329,17 @@
             src="../assets/svg/bulet/bulet2.svg"
             class="absolute top-0 right-4 transform -translate-y-24 w-24"
           />
-          <form class="font-noto-sans flex flex-col mt-14">
+          <form
+            class="font-noto-sans flex flex-col mt-14"
+            v-on:submit.prevent="sendMessage"
+          >
             <label for="name">
               Nama Lengkap
               <span class="text-tahured-400">*</span>
             </label>
             <input
               type="text"
-              name="name"
+              v-model="name"
               class="bg-light-200 border-b-2 border-dark-200 h-8 focus:outline-none mb-4"
             />
             <label for="ig">
@@ -342,16 +348,37 @@
             </label>
             <input
               type="text"
-              name="ig"
+              v-model="instagram"
               class="bg-light-200 border-b-2 border-dark-200 h-8 focus:outline-none mb-4"
             />
             <button
+              :disabled="!name || !instagram"
               type="submit"
-              class="bg-tahured-400 text-white rounded-lg w-32 ml-auto my-10 px-8 py-2"
+              class="bg-tahured-400 text-white rounded-lg w-32 ml-auto my-10 px-8 py-2 disabled:opacity-50 disabled:cursor-default"
             >
               Submit
             </button>
           </form>
+        </div>
+        <div
+          v-else
+          class="bg-light-200 border-2 border-light-400 w-full rounded-xl px-24 py-8"
+        >
+          <img
+            src="../assets/svg/bulet/bulet1.svg"
+            class="absolute bottom-0 left-0 transform -translate-x-12 translate-y-12 w-24"
+          />
+          <img
+            src="../assets/svg/bulet/bulet2.svg"
+            class="absolute top-0 right-4 transform -translate-y-24 w-24"
+          />
+          <div class="font-montserrat font-black text-6xl text-center mb-4">
+            Terima Kasih!
+          </div>
+          <div class="font-noto-sans text-2xl text-center">
+            Tunggu ajakan kami melalui DM untuk menjadi yang pertama mencoba
+            permainan kami ya!
+          </div>
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -379,7 +406,8 @@
             </a>
           </div>
           <div class="flex gap-x-4 text-white">
-            <div @click="navJump('hubungi-kami')"
+            <div
+              @click="navJump('hubungi-kami')"
               class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-apple text-6xl"></div>
@@ -388,7 +416,8 @@
                 <div class="text-2xl font-bold">App Store</div>
               </div>
             </div>
-            <div @click="navJump('hubungi-kami')"
+            <div
+              @click="navJump('hubungi-kami')"
               class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-google-play text-5xl"></div>
@@ -408,6 +437,9 @@
 </template>
 
 <script>
+//firebase
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
 //flicking src:https://naver.github.io/egjs-flicking/
 import Flicking from '@egjs/vue3-flicking'
 import '@egjs/vue3-flicking/dist/flicking-inline.css'
@@ -435,7 +467,11 @@ export default {
     return {
       activeTheme: 'teman',
       themeColor: '#ff4a3d',
+      name: null,
+      instagram: null,
+      contactBool: false,
       plugins: [new Pagination({ type: 'bullet' }), new Fade(), new Arrow()],
+      db: firebase.firestore(),
     }
   },
   mounted() {
@@ -456,10 +492,10 @@ export default {
       this.activeTheme = theme
     },
     onScroll() {
-      console.log(window.scrollY)
-      console.log(
-        document.getElementById('apa-itu-tahu').getBoundingClientRect(),
-      )
+      // console.log(window.scrollY)
+      // console.log(
+      //   document.getElementById('apa-itu-tahu').getBoundingClientRect(),
+      // )
       if (
         160 >= document.getElementById('hubungi-kami').getBoundingClientRect().y
       ) {
@@ -484,7 +520,19 @@ export default {
     },
     navJump(id) {
       window.scrollTo(0, 0)
-      window.scrollTo(0, document.getElementById(id).getBoundingClientRect().y - 120)
+      window.scrollTo(
+        0,
+        document.getElementById(id).getBoundingClientRect().y - 120,
+      )
+    },
+    sendMessage() {
+      const messageInfo = {
+        name: this.name,
+        instagram: this.instagram,
+        createdAt: Date.now(),
+      }
+      await this.db.collection('messages').add(messageInfo)
+      this.contactBool = true
     },
   },
 }
