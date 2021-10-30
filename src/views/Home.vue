@@ -525,7 +525,7 @@ export default {
         document.getElementById(id).getBoundingClientRect().y - 120,
       )
     },
-    sendMessage() {
+    async sendMessage() {
       const messageInfo = {
         name: this.name,
         instagram: this.instagram,

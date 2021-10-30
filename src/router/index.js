@@ -10,6 +10,7 @@ const routes = [
     component: Home,
     meta: {
       title: "Home",
+      icon: "/src/assets/img/logo-square.png"
     },
   },
 ];
