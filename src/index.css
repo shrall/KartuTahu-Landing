@@ -4,19 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav{
-    @apply hover:text-tahured-400 cursor-pointer;
+.nav {
+  @apply hover:text-tahured-400 cursor-pointer;
 }
-.nav-active{
-    @apply text-tahured-400;
+.nav-active {
+  @apply text-tahured-400;
 }
-.section-head{
-    @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-24 text-6xl;
+.section-head {
+  @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-24 text-6xl;
 }
 
-.theme-menu{
-    @apply w-32 text-center px-4 py-2 rounded-xl border-2 cursor-pointer hover:text-white;
+.theme-menu {
+  @apply w-32 text-center px-4 py-2 rounded-xl border-2 cursor-pointer hover:text-white;
 }
-.theme-card{
-    @apply w-128 h-96 mx-4 bg-light-200 rounded-xl my-8 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 bg-cover;
+.theme-card {
+  @apply w-128 h-96 mx-4 bg-light-200 rounded-xl my-8 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 bg-cover;
+}
+
+.section-head-mobile {
+  @apply flex justify-items-center items-center justify-center font-montserrat font-black mx-auto px-12;
+}
+.theme-card-mobile {
+  @apply w-80 h-48 mx-4 bg-light-200 rounded-xl my-8 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 bg-cover;
+}
+.flicking-viewport {
+  transition: height 500ms;
 }

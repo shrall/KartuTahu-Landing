@@ -18,7 +18,9 @@ module.exports = {
         "card-diriku": "url('/src/assets/svg/cards/CardDiriku.svg')",
         "chat-right": "url('/src/assets/svg/ChatRight.svg')",
         "chat-left": "url('/src/assets/svg/ChatLeft.svg')",
+        "chat-up": "url('/src/assets/svg/ChatUp.svg')",
         "hubungi-kami": "url('/src/assets/svg/AssetsHubungiKami.svg')",
+        "hubungi-kami-mobile": "url('/src/assets/svg/AssetsHubungiKamiMobile.svg')",
       },
       fontFamily: {
         montserrat: ['"Montserrat"'],
@@ -86,6 +88,8 @@ module.exports = {
         "9/10": "90%",
       },
       width: {
+        "vw-30": "30vw",
+        "vw-40": "40vw",
         "vw-50": "50vw",
         "vw-55": "55vw",
         "vw-60": "60vw",
@@ -106,6 +110,8 @@ module.exports = {
         "2px": "2px",
       },
       height: {
+        "vh-30": "30vh",
+        "vh-40": "40vh",
         "vh-50": "50vh",
         "vh-55": "55vh",
         "vh-60": "60vh",

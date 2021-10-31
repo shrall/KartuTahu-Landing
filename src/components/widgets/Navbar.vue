@@ -1,7 +1,7 @@
 <template>
   <nav
     id="navbar"
-    class="fixed grid grid-cols-11 justify-center place-items-center items-center gap-x-4 font-noto-sans font-semibold py-4 w-screen bg-light-200 z-50"
+    class="fixed grid grid-cols-11 justify-center place-items-center items-center gap-x-4 font-noto-sans font-semibold py-4 w-screen bg-light-200 shadow-lg z-50"
   >
     <div></div>
     <div></div>

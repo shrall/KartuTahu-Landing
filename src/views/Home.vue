@@ -42,9 +42,10 @@
       </div>
       <AssetsApaItuTahu class="h-96 mx-auto my-4" />
       <div class="w-148 text-2xl font-noto-sans mx-auto text-center mb-24">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s.
+        Kartu Tahu adalah sebuah permainan kartu yang berisikan
+        pertanyaan-pertanyaan yang dapat dimainkan bersama teman-temanmu dengan
+        berbagai pilihan tema menarik yang dapat kamu pilih dan mainkan dimana
+        pun dan kapan pun.
       </div>
       <div class="w-screen"></div>
       <div class="bg-white h-full">
@@ -126,6 +127,7 @@
           </div>
           <div class="col-span-9 pr-24">
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'teman'"
               ref="flicking_teman"
               @select="
@@ -138,8 +140,13 @@
               <div class="theme-card bg-card-taktahu"></div>
               <div class="theme-card bg-card-tahu"></div>
               <div class="theme-card bg-card-sobattahu"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'pasangan'"
               ref="flicking_pasangan"
               @select="
@@ -152,43 +159,76 @@
               <div class="theme-card bg-card-sukadia"></div>
               <div class="theme-card bg-card-pacardia"></div>
               <div class="theme-card bg-card-yakindia"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'lucu'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-lucu"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'tantangan'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-tantangan"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'keluarga'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-keluarga"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'kolega'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-kolega"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
             <Flicking
+              :plugins="themePlugins"
               v-if="activeTheme === 'diriku'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-diriku"></div>
+              <template #viewport>
+                <span class="flicking-arrow-prev"></span>
+                <span class="flicking-arrow-next"></span>
+              </template>
             </Flicking>
           </div>
         </div>
-        <div class="font-noto-sans text-2xl text-center px-64">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s.
+        <div class="font-noto-sans text-2xl text-center px-64 mb-6">
+          {{ themeDescription }}
+        </div>
+        <div class="font-noto-sans font-bold text-2xl text-center px-64">
+          Jumlah Pemain
+        </div>
+        <div class="font-noto-sans text-2xl text-center px-64 mb-4">
+          {{ themePlayerCount }}
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -207,14 +247,15 @@
         <div class="col-span-2"></div>
         <div class="col-span-6">
           <div class="font-noto-sans text-2xl">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
+            Sudah tau cara mainnya?<br>Kalau belum, Yuk cek 4 Langkah <span class="font-bold">#MainTahu</span> !
           </div>
         </div>
       </div>
       <div class="bg-light-200 h-full">
-        <Flicking :plugins="plugins" :options="{ noPanelStyleOverride: true }">
+        <Flicking
+          :plugins="howToPlugins"
+          :options="{ noPanelStyleOverride: true, circular: true }"
+        >
           <div class="w-vw-70 mr-12">
             <div class="grid grid-cols-12 justify-center items-center">
               <div
@@ -312,9 +353,10 @@
         <div class="text-7xl">?</div>
       </div>
       <div class="font-noto-sans text-2xl text-center px-64 mb-28">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s.
+        Wah, kita keduluan nih sama kamu 🥺<br> Game kita masih diracik adonannya, kamu
+        mau ga buat jadi testernya kalau tahunya sudah siap saji?<br>Kalau mau,
+        bisa tulis username Instagram kamu di bawah ini ya biar kita DM kalau
+        tahunya udah siap!<br>Coba selagi hangat ya 😏
       </div>
       <div class="relative w-vw-60 mx-auto">
         <div
@@ -354,7 +396,7 @@
             <button
               :disabled="!name || !instagram"
               type="submit"
-              class="bg-tahured-400 text-white rounded-lg w-32 ml-auto my-10 px-8 py-2 disabled:opacity-50 disabled:cursor-default"
+              class="bg-tahured-400 text-white rounded-lg w-32 ml-auto my-10 px-8 py-2 hover:bg-tahured-500 disabled:opacity-50 disabled:cursor-default"
             >
               Submit
             </button>
@@ -383,7 +425,7 @@
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
-          fill="#ff4a3d"
+          :fill="themeColor"
           fill-opacity="1"
           d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,170.7C672,160,768,160,864,170.7C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
@@ -402,7 +444,7 @@
             </a>
             <a href="#" class="flex items-center gap-x-4 hover:text-light-400">
               <span class="far fa-fw fa-envelope text-5xl"></span>
-              <span class="text-2xl">kartutahu@gmail.com</span>
+              <span class="text-2xl">kontak@kartutahu.com</span>
             </a>
           </div>
           <div class="flex gap-x-4 text-white">
@@ -467,10 +509,17 @@ export default {
     return {
       activeTheme: 'teman',
       themeColor: '#ff4a3d',
+      themeDescription: "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'",
+      themePlayerCount: "Tak terbatas seperti jumlah sambatan kalian.",
       name: null,
       instagram: null,
       contactBool: false,
-      plugins: [new Pagination({ type: 'bullet' }), new Fade(), new Arrow()],
+      themePlugins: [new Arrow()],
+      howToPlugins: [
+        new Pagination({ type: 'bullet' }),
+        new Fade(),
+        new Arrow(),
+      ],
       db: firebase.firestore(),
     }
   },
@@ -489,13 +538,31 @@ export default {
       }
     },
     changeActiveTheme(theme) {
-      this.activeTheme = theme
+      this.activeTheme = theme;
+      if(theme == 'teman'){
+        this.themeDescription = "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'"
+        this.themePlayerCount = "Tak terbatas seperti jumlah sambatan kalian."
+      }else if(theme == 'pasangan'){
+        this.themeDescription = "Masalah terbesar dalam memulai maupun menjalani hubungan adalah miskomunikasi dan perbedaan visi misi. Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu."
+        this.themePlayerCount = "Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain."
+      }else if(theme == 'lucu'){
+        this.themeDescription = "Pas buat kamu dan teman-temanmu yang urat malunya udah putus to the bone."
+        this.themePlayerCount = "Bawa sekampung dah. Bebas."
+      }else if(theme == 'tantangan'){
+        this.themeDescription = "Pengikut Mad Dog jalur Tidak Tahu Malu bisa cobain nih buat nantang RT sebelah yang biasa ngajak tanding kelereng dari Film Game Cumi."
+        this.themePlayerCount = "Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦"
+      }else if(theme == 'keluarga'){
+        this.themeDescription = "Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol? Karena quality time tidak hanya dengan teman dan pasangan. Perbanyak memori selagi masih bersama."
+        this.themePlayerCount = "Bisa sampai sekeluarga Gen Halilintar ⚡"
+      }else if(theme == 'kolega'){
+        this.themeDescription = "Hai, PIC bonding divisi ya? Nah, cobain gih biar makin kenal gaya kerja masing-masing. Psst, bisa buat jadi bahan evaluasi sama rekan kerja dan bos kamu lho 😉"
+        this.themePlayerCount = "Ajak semua sebelum dipecat bos."
+      }else if(theme == 'diriku'){
+        this.themeDescription = "Karena mandiri tidak selalu mandi sendiri. Namun juga refleksi mandiri untuk menjadi pribadi yang lebih baik."
+        this.themePlayerCount = "Kyk lagunya Mbak Jeni Blekping, I'm going Solo-lo-lo-lo-lo-lo-lo 💃🕺. Bukan Surakarta ya."
+      }
     },
     onScroll() {
-      // console.log(window.scrollY)
-      // console.log(
-      //   document.getElementById('apa-itu-tahu').getBoundingClientRect(),
-      // )
       if (
         160 >= document.getElementById('hubungi-kami').getBoundingClientRect().y
       ) {
@@ -529,7 +596,7 @@ export default {
       const messageInfo = {
         name: this.name,
         instagram: this.instagram,
-        createdAt: Date.now(),
+        createdAt: new Date(),
       }
       await this.db.collection('messages').add(messageInfo)
       this.contactBool = true
