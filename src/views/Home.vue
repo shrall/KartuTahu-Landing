@@ -221,13 +221,17 @@
             </Flicking>
           </div>
         </div>
-        <div class="font-noto-sans text-2xl text-center px-64 mb-6">
+        <div
+          class="font-noto-sans text-2xl text-center px-64 mb-6 whitespace-pre-wrap"
+        >
           {{ themeDescription }}
         </div>
         <div class="font-noto-sans font-bold text-2xl text-center px-64">
           Jumlah Pemain
         </div>
-        <div class="font-noto-sans text-2xl text-center px-64 mb-4">
+        <div
+          class="font-noto-sans text-2xl text-center px-64 mb-4 whitespace-pre-wrap"
+        >
           {{ themePlayerCount }}
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -247,7 +251,11 @@
         <div class="col-span-2"></div>
         <div class="col-span-6">
           <div class="font-noto-sans text-2xl">
-            Sudah tau cara mainnya?<br>Kalau belum, Yuk cek 4 Langkah <span class="font-bold">#MainTahu</span> !
+            Sudah tau cara mainnya?
+            <br />
+            Kalau belum, Yuk cek 4 Langkah
+            <span class="font-bold">#MainTahu</span>
+            !
           </div>
         </div>
       </div>
@@ -353,10 +361,15 @@
         <div class="text-7xl">?</div>
       </div>
       <div class="font-noto-sans text-2xl text-center px-64 mb-28">
-        Wah, kita keduluan nih sama kamu 🥺<br> Game kita masih diracik adonannya, kamu
-        mau ga buat jadi testernya kalau tahunya sudah siap saji?<br>Kalau mau,
-        bisa tulis username Instagram kamu di bawah ini ya biar kita DM kalau
-        tahunya udah siap!<br>Coba selagi hangat ya 😏
+        Wah, kita keduluan nih sama kamu 🥺
+        <br />
+        Game kita masih diracik adonannya, kamu mau ga buat jadi testernya kalau
+        tahunya sudah siap saji?
+        <br />
+        Kalau mau, bisa tulis username Instagram kamu di bawah ini ya biar kita
+        DM kalau tahunya udah siap!
+        <br />
+        Coba selagi hangat ya 😏
       </div>
       <div class="relative w-vw-60 mx-auto">
         <div
@@ -509,8 +522,11 @@ export default {
     return {
       activeTheme: 'teman',
       themeColor: '#ff4a3d',
-      themeDescription: "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'",
-      themePlayerCount: "Tak terbatas seperti jumlah sambatan kalian.",
+      themeDescription:
+        'Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim?' +
+        '\n' +
+        "Nah sekarang saatnya buat 'buka kartu'",
+      themePlayerCount: 'Tak terbatas seperti jumlah sambatan kalian.',
       name: null,
       instagram: null,
       contactBool: false,
@@ -538,28 +554,52 @@ export default {
       }
     },
     changeActiveTheme(theme) {
-      this.activeTheme = theme;
-      if(theme == 'teman'){
-        this.themeDescription = "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'"
-        this.themePlayerCount = "Tak terbatas seperti jumlah sambatan kalian."
-      }else if(theme == 'pasangan'){
-        this.themeDescription = "Masalah terbesar dalam memulai maupun menjalani hubungan adalah miskomunikasi dan perbedaan visi misi. Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu."
-        this.themePlayerCount = "Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain."
-      }else if(theme == 'lucu'){
-        this.themeDescription = "Pas buat kamu dan teman-temanmu yang urat malunya udah putus to the bone."
-        this.themePlayerCount = "Bawa sekampung dah. Bebas."
-      }else if(theme == 'tantangan'){
-        this.themeDescription = "Pengikut Mad Dog jalur Tidak Tahu Malu bisa cobain nih buat nantang RT sebelah yang biasa ngajak tanding kelereng dari Film Game Cumi."
-        this.themePlayerCount = "Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦"
-      }else if(theme == 'keluarga'){
-        this.themeDescription = "Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol? Karena quality time tidak hanya dengan teman dan pasangan. Perbanyak memori selagi masih bersama."
-        this.themePlayerCount = "Bisa sampai sekeluarga Gen Halilintar ⚡"
-      }else if(theme == 'kolega'){
-        this.themeDescription = "Hai, PIC bonding divisi ya? Nah, cobain gih biar makin kenal gaya kerja masing-masing. Psst, bisa buat jadi bahan evaluasi sama rekan kerja dan bos kamu lho 😉"
-        this.themePlayerCount = "Ajak semua sebelum dipecat bos."
-      }else if(theme == 'diriku'){
-        this.themeDescription = "Karena mandiri tidak selalu mandi sendiri. Namun juga refleksi mandiri untuk menjadi pribadi yang lebih baik."
-        this.themePlayerCount = "Kyk lagunya Mbak Jeni Blekping, I'm going Solo-lo-lo-lo-lo-lo-lo 💃🕺. Bukan Surakarta ya."
+      this.activeTheme = theme
+      if (theme == 'teman') {
+        this.themeDescription =
+          'Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim?' +
+          '\n' +
+          `Nah sekarang saatnya buat 'buka kartu'`
+        this.themePlayerCount = 'Tak terbatas seperti jumlah sambatan kalian.'
+      } else if (theme == 'pasangan') {
+        this.themeDescription =
+          'Masalah terbesar dalam memulai maupun menjalani hubungan adalah miskomunikasi dan perbedaan visi misi. ' +
+          '\n' +
+          'Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu.'
+        this.themePlayerCount =
+          'Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain.'
+      } else if (theme == 'lucu') {
+        this.themeDescription =
+          'Pas buat kamu dan teman-temanmu yang urat malunya udah putus to the bone.'
+        this.themePlayerCount = 'Bawa sekampung dah. Bebas.'
+      } else if (theme == 'tantangan') {
+        this.themeDescription =
+          'Pengikut Mad Dog jalur Tidak Tahu Malu bisa cobain nih buat nantang RT sebelah yang biasa ngajak tanding kelereng dari Film Game Cumi.'
+        this.themePlayerCount =
+          'Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦'
+      } else if (theme == 'keluarga') {
+        this.themeDescription =
+          'Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol?' +
+          '\n' +
+          'Karena quality time tidak hanya dengan teman dan pasangan. Perbanyak memori selagi masih bersama.'
+        this.themePlayerCount = 'Bisa sampai sekeluarga Gen Halilintar ⚡'
+      } else if (theme == 'kolega') {
+        this.themeDescription =
+          'Hai, PIC bonding divisi ya?' +
+          '\n' +
+          'Nah, cobain gih biar makin kenal gaya kerja masing-masing.' +
+          '\n' +
+          'Psst, bisa buat jadi bahan evaluasi sama rekan kerja dan bos kamu lho 😉'
+        this.themePlayerCount = 'Ajak semua sebelum dipecat bos.'
+      } else if (theme == 'diriku') {
+        this.themeDescription =
+          'Karena mandiri tidak selalu mandi sendiri.' +
+          '\n' +
+          'Namun juga refleksi mandiri untuk menjadi pribadi yang lebih baik.'
+        this.themePlayerCount =
+          "Kyk lagunya Mbak Jeni Blekping, I'm going Solo-lo-lo-lo-lo-lo-lo 💃🕺." +
+          '\n' +
+          'Bukan Surakarta ya.'
       }
     },
     onScroll() {

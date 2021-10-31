@@ -125,13 +125,17 @@
           <span class="flicking-arrow-next"></span>
         </template>
       </Flicking>
-      <div class="font-noto-sans text-lg text-center px-4 mb-6">
+      <div
+        class="font-noto-sans text-lg text-center px-4 mb-6 whitespace-pre-wrap"
+      >
         {{ themeDescription }}
       </div>
       <div class="font-noto-sans font-bold text-lg text-center px-4">
         Jumlah Pemain
       </div>
-      <div class="font-noto-sans text-lg text-center px-4 mb-4">
+      <div
+        class="font-noto-sans text-lg text-center px-4 mb-4 whitespace-pre-wrap"
+      >
         {{ themePlayerCount }}
       </div>
       <div
@@ -449,7 +453,9 @@ export default {
       activeTheme: 'teman',
       themeColor: '#ff4a3d',
       themeDescription:
-        "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'",
+        'Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim?' +
+        '\n' +
+        "Nah sekarang saatnya buat 'buka kartu'",
       themePlayerCount: 'Tak terbatas seperti jumlah sambatan kalian.',
       name: null,
       instagram: null,
@@ -481,11 +487,15 @@ export default {
       this.activeTheme = theme
       if (theme == 'teman') {
         this.themeDescription =
-          "Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim? Nah sekarang saatnya buat 'buka kartu'"
+          'Katanya sih ga ada rahasia di antara kita, tapi kok masih jaim?' +
+          '\n' +
+          "Nah sekarang saatnya buat 'buka kartu'"
         this.themePlayerCount = 'Tak terbatas seperti jumlah sambatan kalian.'
       } else if (theme == 'pasangan') {
         this.themeDescription =
-          'Masalah terbesar dalam memulai maupun menjalani hubungan adalah miskomunikasi dan perbedaan visi misi. Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu.'
+          'Masalah terbesar dalam memulai maupun menjalani hubungan adalah miskomunikasi dan perbedaan visi misi. ' +
+          '\n' +
+          'Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu.'
         this.themePlayerCount =
           'Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain.'
       } else if (theme == 'lucu') {
@@ -499,17 +509,27 @@ export default {
           'Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦'
       } else if (theme == 'keluarga') {
         this.themeDescription =
-          'Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol? Karena quality time tidak hanya dengan teman dan pasangan. Perbanyak memori selagi masih bersama.'
+          'Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol?' +
+          '\n' +
+          'Karena quality time tidak hanya dengan teman dan pasangan. Perbanyak memori selagi masih bersama.'
         this.themePlayerCount = 'Bisa sampai sekeluarga Gen Halilintar ⚡'
       } else if (theme == 'kolega') {
         this.themeDescription =
-          'Hai, PIC bonding divisi ya? Nah, cobain gih biar makin kenal gaya kerja masing-masing. Psst, bisa buat jadi bahan evaluasi sama rekan kerja dan bos kamu lho 😉'
+          'Hai, PIC bonding divisi ya?' +
+          '\n' +
+          'Nah, cobain gih biar makin kenal gaya kerja masing-masing.' +
+          '\n' +
+          'Psst, bisa buat jadi bahan evaluasi sama rekan kerja dan bos kamu lho 😉'
         this.themePlayerCount = 'Ajak semua sebelum dipecat bos.'
       } else if (theme == 'diriku') {
         this.themeDescription =
-          'Karena mandiri tidak selalu mandi sendiri. Namun juga refleksi mandiri untuk menjadi pribadi yang lebih baik.'
+          'Karena mandiri tidak selalu mandi sendiri.' +
+          '\n' +
+          'Namun juga refleksi mandiri untuk menjadi pribadi yang lebih baik.'
         this.themePlayerCount =
-          "Kyk lagunya Mbak Jeni Blekping, I'm going Solo-lo-lo-lo-lo-lo-lo 💃🕺. Bukan Surakarta ya."
+          "Kyk lagunya Mbak Jeni Blekping, I'm going Solo-lo-lo-lo-lo-lo-lo 💃🕺." +
+          '\n' +
+          'Bukan Surakarta ya.'
       }
     },
     onScroll() {
