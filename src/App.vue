@@ -22,6 +22,13 @@ export default {
           ),
         },
         {
+          name: `facebook-domain-verification`,
+          content: computed(
+            () =>
+              'iexrthvngmf1xij20ysqr4bs5mfi5b',
+          ),
+        },
+        {
           property: 'og:type',
           content: 'Website',
         },
