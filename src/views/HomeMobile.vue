@@ -65,8 +65,8 @@
         "
       >
         <div class="theme-card-mobile bg-card-taktahu"></div>
-        <div class="theme-card-mobile bg-card-tahu"></div>
-        <div class="theme-card-mobile bg-card-sobattahu"></div>
+        <div class="theme-card-mobile bg-card-cumatahu"></div>
+        <div class="theme-card-mobile bg-card-makintahu"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
@@ -82,44 +82,47 @@
           }
         "
       >
-        <div class="theme-card-mobile bg-card-sukadia"></div>
-        <div class="theme-card-mobile bg-card-pacardia"></div>
-        <div class="theme-card-mobile bg-card-yakindia"></div>
+        <div class="theme-card-mobile bg-card-tahukamu"></div>
+        <div class="theme-card-mobile bg-card-tahuakukamu"></div>
+        <div class="theme-card-mobile bg-card-tahukita"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
         </template>
       </Flicking>
-      <Flicking :plugins="themePlugins" v-if="activeTheme === 'lucu'">
-        <div class="theme-card-mobile bg-card-lucu"></div>
-        <template #viewport>
-          <span class="flicking-arrow-prev"></span>
-          <span class="flicking-arrow-next"></span>
-        </template>
-      </Flicking>
-      <Flicking :plugins="themePlugins" v-if="activeTheme === 'tantangan'">
-        <div class="theme-card-mobile bg-card-tantangan"></div>
+      <Flicking
+        :plugins="themePlugins"
+        v-if="activeTheme === 'gokil'"
+        ref="flicking_gokil"
+        @select="
+          (e) => {
+            cardClick(e)
+          }
+        "
+      >
+        <div class="theme-card-mobile bg-card-tahumalu"></div>
+        <div class="theme-card-mobile bg-card-tidaktahumalu"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
         </template>
       </Flicking>
       <Flicking :plugins="themePlugins" v-if="activeTheme === 'keluarga'">
-        <div class="theme-card-mobile bg-card-keluarga"></div>
+        <div class="theme-card-mobile bg-card-tahukeluarga"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
         </template>
       </Flicking>
       <Flicking :plugins="themePlugins" v-if="activeTheme === 'kolega'">
-        <div class="theme-card-mobile bg-card-kolega"></div>
+        <div class="theme-card-mobile bg-card-tahukolega"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
         </template>
       </Flicking>
       <Flicking :plugins="themePlugins" v-if="activeTheme === 'diriku'">
-        <div class="theme-card-mobile bg-card-diriku"></div>
+        <div class="theme-card-mobile bg-card-tahudiri"></div>
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
           <span class="flicking-arrow-next"></span>
@@ -159,21 +162,12 @@
         </div>
         <div
           class="theme-menu border-tahuorange-400 hover:bg-tahuorange-400"
-          @click="changeActiveTheme('lucu')"
+          @click="changeActiveTheme('gokil')"
           :class="{
-            'bg-tahuorange-400 text-white': activeTheme === 'lucu',
+            'bg-tahuorange-400 text-white': activeTheme === 'gokil',
           }"
         >
-          Lucu
-        </div>
-        <div
-          class="theme-menu border-tahuyellow-400 hover:bg-tahuyellow-400"
-          @click="changeActiveTheme('tantangan')"
-          :class="{
-            'bg-tahuyellow-400 text-white': activeTheme === 'tantangan',
-          }"
-        >
-          Tantangan
+          Gokil
         </div>
         <div
           class="theme-menu border-tahugreen-400 hover:bg-tahugreen-400"
@@ -481,6 +475,8 @@ export default {
         this.$refs.flicking_teman.moveTo(e.index)
       } else if (this.activeTheme === 'pasangan') {
         this.$refs.flicking_pasangan.moveTo(e.index)
+      } else if (this.activeTheme === 'gokil') {
+        this.$refs.flicking_gokil.moveTo(e.index)
       }
     },
     changeActiveTheme(theme) {
@@ -498,15 +494,10 @@ export default {
           'Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu.'
         this.themePlayerCount =
           'Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain.'
-      } else if (theme == 'lucu') {
+      } else if (theme == 'gokil') {
         this.themeDescription =
           'Pas buat kamu dan teman-temanmu yang urat malunya udah putus to the bone.'
         this.themePlayerCount = 'Bawa sekampung dah. Bebas.'
-      } else if (theme == 'tantangan') {
-        this.themeDescription =
-          'Pengikut Mad Dog jalur Tidak Tahu Malu bisa cobain nih buat nantang RT sebelah yang biasa ngajak tanding kelereng dari Film Game Cumi.'
-        this.themePlayerCount =
-          'Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦'
       } else if (theme == 'keluarga') {
         this.themeDescription =
           'Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol?' +

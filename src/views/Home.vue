@@ -3,7 +3,7 @@
   <div class="bg-light-200 text-dark-400">
     <div
       id="home"
-      class="bg-light-200 w-full h-screen grid grid-cols-12 justify-center items-center px-24"
+      class="bg-light-200 w-full h-auto grid grid-cols-12 justify-center items-center px-24 pt-16"
     >
       <div class="col-span-5 2xl:pr-24">
         <div class="text-5xl 2xl:text-6xl font-montserrat font-bold mb-8">
@@ -12,22 +12,22 @@
         <div class="flex gap-x-4 text-white">
           <div
             @click="navJump('hubungi-kami')"
-            class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
+            class="bg-dark-200 rounded-xl w-64 2xl:w-72 flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-apple text-6xl"></div>
             <div class="font-noto-sans">
               <div>Download di</div>
-              <div class="text-2xl 2xl:text-3xl font-bold">App Store</div>
+              <div class="text-xl 2xl:text-3xl font-bold">App Store</div>
             </div>
           </div>
           <div
             @click="navJump('hubungi-kami')"
-            class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
+            class="bg-dark-200 rounded-xl w-64 2xl:w-72 flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-300"
           >
             <div class="fab fa-google-play text-5xl"></div>
             <div class="font-noto-sans">
               <div>TEMUKAN DI</div>
-              <div class="text-2xl 2xl:text-3xl font-bold">Google Play</div>
+              <div class="text-xl 2xl:text-3xl font-bold">Google Play</div>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
         berbagai pilihan tema menarik yang dapat kamu pilih dan mainkan dimana
         pun dan kapan pun.
       </div>
-      <div class="w-screen"></div>
+      <div class="w-full"></div>
       <div class="bg-white h-full">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -81,21 +81,12 @@
             </div>
             <div
               class="theme-menu border-tahuorange-400 hover:bg-tahuorange-400"
-              @click="changeActiveTheme('lucu')"
+              @click="changeActiveTheme('gokil')"
               :class="{
-                'bg-tahuorange-400 text-white': activeTheme === 'lucu',
+                'bg-tahuorange-400 text-white': activeTheme === 'gokil',
               }"
             >
-              Lucu
-            </div>
-            <div
-              class="theme-menu border-tahuyellow-400 hover:bg-tahuyellow-400"
-              @click="changeActiveTheme('tantangan')"
-              :class="{
-                'bg-tahuyellow-400 text-white': activeTheme === 'tantangan',
-              }"
-            >
-              Tantangan
+              Gokil
             </div>
             <div
               class="theme-menu border-tahugreen-400 hover:bg-tahugreen-400"
@@ -138,8 +129,8 @@
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
               <div class="theme-card bg-card-taktahu"></div>
-              <div class="theme-card bg-card-tahu"></div>
-              <div class="theme-card bg-card-sobattahu"></div>
+              <div class="theme-card bg-card-cumatahu"></div>
+              <div class="theme-card bg-card-makintahu"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -156,9 +147,9 @@
               "
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
-              <div class="theme-card bg-card-sukadia"></div>
-              <div class="theme-card bg-card-pacardia"></div>
-              <div class="theme-card bg-card-yakindia"></div>
+              <div class="theme-card bg-card-tahukamu"></div>
+              <div class="theme-card bg-card-tahuakukamu"></div>
+              <div class="theme-card bg-card-tahukita"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -166,21 +157,17 @@
             </Flicking>
             <Flicking
               :plugins="themePlugins"
-              v-if="activeTheme === 'lucu'"
+              v-if="activeTheme === 'gokil'"
+              ref="flicking_gokil"
+              @select="
+                (e) => {
+                  cardClick(e)
+                }
+              "
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
-              <div class="theme-card bg-card-lucu"></div>
-              <template #viewport>
-                <span class="flicking-arrow-prev"></span>
-                <span class="flicking-arrow-next"></span>
-              </template>
-            </Flicking>
-            <Flicking
-              :plugins="themePlugins"
-              v-if="activeTheme === 'tantangan'"
-              :options="{ align: { camera: '10%', panel: '36rem' } }"
-            >
-              <div class="theme-card bg-card-tantangan"></div>
+              <div class="theme-card bg-card-tahumalu"></div>
+              <div class="theme-card bg-card-tidaktahumalu"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -191,7 +178,7 @@
               v-if="activeTheme === 'keluarga'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
-              <div class="theme-card bg-card-keluarga"></div>
+              <div class="theme-card bg-card-tahukeluarga"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -202,7 +189,7 @@
               v-if="activeTheme === 'kolega'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
-              <div class="theme-card bg-card-kolega"></div>
+              <div class="theme-card bg-card-tahukolega"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -213,7 +200,7 @@
               v-if="activeTheme === 'diriku'"
               :options="{ align: { camera: '10%', panel: '36rem' } }"
             >
-              <div class="theme-card bg-card-diriku"></div>
+              <div class="theme-card bg-card-tahudiri"></div>
               <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>
@@ -269,7 +256,9 @@
               <div
                 class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
               >
-                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                <div
+                  class="font-montserrat font-black text-5xl 2xl:text-6xl mt-2/10 xl:mt-1.5/10 mb-8"
+                >
                   Langkah 1
                 </div>
                 <div class="font-noto-sans text-2xl">
@@ -287,7 +276,9 @@
               <div
                 class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
               >
-                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                <div
+                  class="font-montserrat font-black text-5xl 2xl:text-6xl mt-2/10 xl:mt-1.5/10 mb-8"
+                >
                   Langkah 2
                 </div>
                 <div class="font-noto-sans text-2xl">
@@ -305,7 +296,9 @@
               <div
                 class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
               >
-                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                <div
+                  class="font-montserrat font-black text-5xl 2xl:text-6xl mt-2/10 xl:mt-1.5/10 mb-8"
+                >
                   Langkah 3
                 </div>
                 <div class="font-noto-sans text-2xl">
@@ -323,7 +316,9 @@
               <div
                 class="col-span-8 w-full h-full bg-chat-right bg-contain bg-center bg-no-repeat pl-8 pr-24"
               >
-                <div class="font-montserrat font-black text-6xl mt-1.5/10 mb-8">
+                <div
+                  class="font-montserrat font-black text-5xl 2xl:text-6xl mt-2/10 xl:mt-1.5/10 mb-8"
+                >
                   Langkah 4
                 </div>
                 <div class="font-noto-sans text-2xl">
@@ -463,22 +458,22 @@
           <div class="flex gap-x-4 text-white">
             <div
               @click="navJump('hubungi-kami')"
-              class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
+              class="bg-dark-200 rounded-xl w-64 2xl:w-72 flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-apple text-6xl"></div>
               <div class="font-noto-sans">
                 <div>Download di</div>
-                <div class="text-2xl font-bold">App Store</div>
+                <div class="text-xl font-bold">App Store</div>
               </div>
             </div>
             <div
               @click="navJump('hubungi-kami')"
-              class="bg-dark-200 rounded-xl w-full flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
+              class="bg-dark-200 rounded-xl w-64 2xl:w-72 flex justify-items-center items-center gap-x-4 px-4 py-3 cursor-pointer hover:bg-dark-400"
             >
               <div class="fab fa-google-play text-5xl"></div>
               <div class="font-noto-sans">
                 <div>TEMUKAN DI</div>
-                <div class="text-2xl font-bold">Google Play</div>
+                <div class="text-xl font-bold">Google Play</div>
               </div>
             </div>
           </div>
@@ -551,6 +546,8 @@ export default {
         this.$refs.flicking_teman.moveTo(e.index)
       } else if (this.activeTheme === 'pasangan') {
         this.$refs.flicking_pasangan.moveTo(e.index)
+      } else if (this.activeTheme === 'gokil') {
+        this.$refs.flicking_gokil.moveTo(e.index)
       }
     },
     changeActiveTheme(theme) {
@@ -568,15 +565,10 @@ export default {
           'Yuk samain dulu persepsi masing-masing biar bisa jadi couple goals yang kayak di akun itu tu.'
         this.themePlayerCount =
           'Harusnya sih 2. Tapi kalau bawa selingkuhan atau mantan, resiko ditanggung pemain.'
-      } else if (theme == 'lucu') {
+      } else if (theme == 'gokil') {
         this.themeDescription =
           'Pas buat kamu dan teman-temanmu yang urat malunya udah putus to the bone.'
         this.themePlayerCount = 'Bawa sekampung dah. Bebas.'
-      } else if (theme == 'tantangan') {
-        this.themeDescription =
-          'Pengikut Mad Dog jalur Tidak Tahu Malu bisa cobain nih buat nantang RT sebelah yang biasa ngajak tanding kelereng dari Film Game Cumi.'
-        this.themePlayerCount =
-          'Ikut Game Cumi deh, yang penting sistem eliminasinya jangan ada pertumpahan darah ya 😦'
       } else if (theme == 'keluarga') {
         this.themeDescription =
           'Apakah rumahmu bisa disebut rumah kalau tidak bisa jadi tempat untuk ngobrol?' +

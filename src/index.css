@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .nav {
-  @apply hover:text-tahured-400 cursor-pointer;
+  @apply hover:text-tahured-400 text-center cursor-pointer;
 }
 .nav-active {
   @apply text-tahured-400;
