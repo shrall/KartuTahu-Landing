@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && firebase deploy",
-    "serve": "vite preview"
+    "build": "vite build",
+    "serve": "vite preview",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@egjs/flicking-plugins": "^4.2.2",
